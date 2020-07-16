@@ -18,6 +18,7 @@
             <th>Количество</th>
             <th>Итого</th>
             <th>Email</th>
+            <th>Удалить из корзины</th>
         </tr>
         </thead>
         <tbody>
@@ -28,6 +29,9 @@
             <td th:text="${carts.value}">Количество</td>
             <td th:text="${carts.sum}">Итого</td>
             <td th:text="${carts.email}">Email покупателя</td>
+            <td>
+                <a th:href="@{'/delete_cart/' + ${carts.id}}">Удалить</a>
+            </td>
         </tr>
         </tbody>
     </table>

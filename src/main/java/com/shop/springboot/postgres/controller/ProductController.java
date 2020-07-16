@@ -9,10 +9,7 @@ import com.shop.springboot.postgres.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -24,7 +21,7 @@ public class ProductController {
     private AutoService service;
 
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String viewHomePage(Model model) {
         List<Product> listProduct = service.listAll();
         model.addAttribute("listProduct", listProduct);
@@ -32,16 +29,15 @@ public class ProductController {
         return "index";
     }
 
-    @RequestMapping("/new")
+    @GetMapping("/new")
     public String showNewProductPage(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
         return "new_auto";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @PostMapping( "/save")
     public String saveProduct(@ModelAttribute("product") Product product) {
-
         try {
             float priceCheck = product.getPrice();
             if ( !Float.isNaN(priceCheck) || product.getPrice() > 0 )
@@ -56,7 +52,7 @@ public class ProductController {
 
     }
 
-    @RequestMapping("/edit/{id}")
+    @GetMapping("/edit/{id}")
     public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("edit_auto");
         Product product = service.get(id);
@@ -65,7 +61,7 @@ public class ProductController {
         return mav;
     }
 
-    @RequestMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable(name = "id") int id) {
         service.delete(id);
         return "redirect:/";

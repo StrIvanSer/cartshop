@@ -17,7 +17,7 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
-    @RequestMapping("/cart")
+    @GetMapping("/cart")
     public String viewCart(Model model) {
 
         List<Cart> listCart = cartService.listAll();
@@ -26,7 +26,7 @@ public class CartController {
         return "cart";
     }
 
-    @RequestMapping(value = "/savecart", method = RequestMethod.POST)
+    @PostMapping("/savecart")
     public String saveProductToCart(@RequestParam String product, @RequestParam Float price,
                                     @RequestParam Integer val, @ModelAttribute Cart cart) {
 
@@ -38,6 +38,13 @@ public class CartController {
         cart.setEmail("svet@inbox.ru");
         cartService.save(cart);
 
+        return "redirect:/";
+    }
+
+    @GetMapping("/delete_cart/{id}")
+    public String deleteProduct(@PathVariable(name = "id") int id) {
+
+        cartService.delete(id);
         return "redirect:/";
     }
 
