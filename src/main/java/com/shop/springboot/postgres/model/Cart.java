@@ -1,48 +1,47 @@
 package com.shop.springboot.postgres.model;
 
 
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-
 import javax.persistence.*;
+import java.util.List;
+
+/**
+ * Таблицы корзина
+ * @author Streltsov Ivan
+ * @version  1.0
+ */
 
 @Entity
 @Table(name = "cart")
 public class Cart {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "cart_id")
     private Long id;
 
-    private String product;
-
-    private Integer value;
-
-    private Float price;
-
+    @Column
     private String email;
 
+    @Column
     private Float sum;
+
+    @ManyToMany(mappedBy = "cart")
+    private List<Product> products;
+
+    @Column
+    private boolean active ;
 
 
     public Cart() {
 
     }
 
-    public Cart(String product, Integer value, String email, Float sum , Float price) {
-
-        this.product = product;
-        this.value = value;
-        this.email = email;
-        this.sum = sum;
-        this.price = price;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public Float getPrice() {
-        return price;
-    }
-
-    public void setPrice(Float price) {
-        this.price = price;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public Long getId() {
@@ -55,26 +54,7 @@ public class Cart {
         this.id = id;
     }
 
-    public String getProduct() {
-
-        return product;
-    }
-
-    public void setProduct(String product) {
-
-        this.product = product;
-    }
-
-    public Integer getValue() {
-        return value;
-    }
-
-    public void setValue(Integer value) {
-
-        this.value = value;
-    }
-
-    public String getEmail()    {
+    public String getEmail() {
         return email;
     }
 
@@ -92,4 +72,13 @@ public class Cart {
 
         this.sum = sum;
     }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
 }

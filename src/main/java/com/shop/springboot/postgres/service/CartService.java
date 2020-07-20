@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+
 
 
 @Service
@@ -16,20 +16,26 @@ public class CartService {
     @Autowired
     private CartRepository cartRepo;
 
-    public List<Cart> listAll() {
 
-        return cartRepo.findAll();
+    public Cart getCartUser(String email) {
+
+        return cartRepo.findByEmail(email);
     }
 
-    public void save(Cart cart) {
 
+    //Сохранение корзины
+    public void save(Cart cart) {
         cartRepo.save(cart);
     }
 
-    public Cart get(String email) {
-        return
-                cartRepo.findByEmail(email);
+    public boolean getCart(String email) {
+        return cartRepo.findByEmailAndActiveFalse(email);
     }
+
+//    public Cart get(String email) {
+//        return
+//                cartRepo.findByEmail(email);
+//    }
 
     public void delete(long id) {
 

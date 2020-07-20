@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Корзина</title>
 </head>
 <body>
 <div align="center">
@@ -12,7 +12,6 @@
     <table border="1" cellpadding="10">
         <thead>
         <tr>
-            <th>Id товара в корзине</th>
             <th>Товар</th>
             <th>Цена</th>
             <th>Количество</th>
@@ -22,21 +21,27 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="carts : ${listCart}">
-            <td th:text="${carts.id}">auto ID</td>
-            <td th:text="${carts.product}">Товар</td>
-            <td th:text="${carts.price}">Цена</td>
-            <td th:text="${carts.value}">Количество</td>
-            <td th:text="${carts.sum}">Итого</td>
-            <td th:text="${carts.email}">Email покупателя</td>
-            <td>
-                <a th:href="@{'/delete_cart/' + ${carts.id}}">Удалить</a>
-            </td>
-        </tr>
+            <tr th:each="carts : ${cart.getProducts()}">
+                <!--            <td th:text="${carts.id}">auto ID</td>-->
+                <td th:text="${carts.getBrand()}">Товар</td>
+                <td th:text="${carts.getPrice()}">Цена</td>
+                <td text="">Количество</td>
+                <td text="">Итого</td>
+                <td th:text="${cart.email}">Email покупателя</td>
+
+                <td>
+                    <a th:href="@{'/delete_cart/' + ${carts.getId()}}">Удалить</a>
+                </td>
+            </tr>
         </tbody>
     </table>
+    <div th:if="${cart.getProducts().isEmpty()}">
+        <h3>Корзина Пустая</h3>
+    </div>
 
-    <a href="/">Магазин</a>
+    <a href="/">Главная страница</a>
+    <a href="/shop">Магазин</a>
+
 </div>
 </body>
 </html>

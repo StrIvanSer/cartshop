@@ -9,7 +9,7 @@
 <div align="center">
     <h1>Добавить новый продукт</h1>
     <br/>
-    <form action="#" th:action="@{/save}" th:object="${product}"
+    <form action="#" th:action="@{/shop_save}" th:object="${product}"
           method="post">
 
         <table border="0" cellpadding="10">
@@ -33,7 +33,7 @@
         <td colspan="2"><button type="submit">Добавить</button> </td>
 
     </form>
-    <form method="get" action="/" >
+    <form method="get" action="/shop_admin" >
         <button type="submit">Назад</button>
     </form>
 </div>

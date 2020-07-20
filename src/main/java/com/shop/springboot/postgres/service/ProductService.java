@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class AutoService {
+public class ProductService {
  
     @Autowired
     private ProductRepository repo;
@@ -19,19 +19,24 @@ public class AutoService {
 
         return repo.findAll();
     }
-     
+
+    // Сохранение продукта
     public void save(Product product) {
 
         repo.save(product);
     }
-     
+
+    //Получить продукт по id
     public Product get(long id) {
         return
                 repo.findById(id).get();
     }
-     
+
+    //Удалить продукт
     public void delete(long id) {
 
         repo.deleteById(id);
     }
+
+
 }
