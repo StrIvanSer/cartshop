@@ -20,6 +20,6 @@ Spring Boot, Spring Security , JPA, Postgresql, HTML.
 
 Для старта проекта необходимо .
 1) git clone https://github.com/StrIvanSer/cartshop.git
-2) в файле application.properties изменить параметры url, username, password для доступа к вашей базе данных
+2) необходимо создать пустую БД в PostgreSQL, в файле application.properties изменить параметры url, username, password для доступа к вашей базе данных, таблицы будут созданы автоматически
 3) запустить ServingWebContent
 4) после успешного старта сервера, необходимо запустить скрипт database.sql для предзаполнения бд.
