@@ -28,8 +28,7 @@ public class ProductService {
 
     //Получить продукт по id
     public Product get(long id) {
-        return
-                repo.findById(id).get();
+        return repo.findById(id);
     }
 
     //Удалить продукт

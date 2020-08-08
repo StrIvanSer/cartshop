@@ -1,5 +1,0 @@
-com\shop\springboot\postgres\controller\AutoController.class
-com\shop\springboot\postgres\service\AutoService.class
-com\shop\springboot\postgres\domain\Auto.class
-com\shop\springboot\postgres\domain\AutoRepository.class
-com\shop\springboot\postgres\ServingWebContent.class

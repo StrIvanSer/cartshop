@@ -23,20 +23,27 @@
         <tbody>
             <tr th:each="carts : ${cart.getProducts()}">
                 <!--            <td th:text="${carts.id}">auto ID</td>-->
-                <td th:text="${carts.getBrand()}">Товар</td>
+                <td th:text="${carts.getName()}">Товар</td>
                 <td th:text="${carts.getPrice()}">Цена</td>
                 <td text="">Количество</td>
                 <td text="">Итого</td>
                 <td th:text="${cart.email}">Email покупателя</td>
 
                 <td>
-                    <a th:href="@{'/delete_cart/' + ${carts.getId()}}">Удалить</a>
+                    <form method="post" action="#" th:action="@{'/delete_cart/' + ${carts.getId()}}">
+                    <button type="submit" name="submit" value="value" class="link-button">Удалить товар</button>
+                    </form>
+
+                    <!--                    <a  th:href="@{'/delete_cart/' + ${carts.getId()} }">Удалить</a>-->
                 </td>
             </tr>
         </tbody>
     </table>
     <div th:if="${cart.getProducts().isEmpty()}">
         <h3>Корзина Пустая</h3>
+    </div>
+    <div>
+           <h3 th:utext = "${sum}"  >  </h3>
     </div>
 
     <a href="/">Главная страница</a>

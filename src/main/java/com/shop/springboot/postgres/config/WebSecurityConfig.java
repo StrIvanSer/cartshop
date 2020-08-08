@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/registration").not().fullyAuthenticated()
                 //Доступ только для пользователей с ролью Администратор
                 .antMatchers("/shop_admin","/new_product").hasRole("ADMIN")
-                .antMatchers("/shop","/cart").hasRole("USER")
+                .antMatchers("/shop","/cart","/delete_cart").hasRole("USER")
                 //Доступ разрешен всем пользователей
                 .antMatchers("/").permitAll()
                 //Все остальные страницы требуют аутентификации

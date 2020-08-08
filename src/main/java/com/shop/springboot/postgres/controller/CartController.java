@@ -27,9 +27,13 @@ public class CartController {
 
     @GetMapping("/cart")
     public String viewCart(Model model, @AuthenticationPrincipal User user) {
-
+        Float sum = (float) 0;
         Cart cart = cartService.getCartUser(user.getEmail());
+        for (Product i: cart.getProducts() ){
+            sum += i.getPrice();
+        }
         model.addAttribute("cart", cart);
+        model.addAttribute("sum", sum);
         return "cart";
     }
 
@@ -39,27 +43,24 @@ public class CartController {
                                     @ModelAttribute Cart cart,
                                     @AuthenticationPrincipal User user) {
 
-//        Cart cartFromShop = cartService.getCartUser(user.getEmail());
-//        float fullPriceProduct;
-//        fullPriceProduct = product.getPrice() * val;
-//
-//        float scale = (float) Math.pow(10, 3);
-//        float result = (float) (Math.ceil(fullPriceProduct * scale) / scale);
-//        product.getId();
-//
-//        cartFromShop.getProducts().add(product);
-//
-//        product.getCart().add(cartFromShop);
-//
-//        cartService.save(cartFromShop);
+        Cart cartFromShop = cartService.getCartUser(user.getEmail());
+
+        if (!cartService.saveProductCart( cartFromShop , product)){
+             return "redirect:/shop";
+        }
 
         return "redirect:/shop";
     }
 
-    @GetMapping("/delete_cart/{id}")
-    public String deleteProduct(@PathVariable(name = "id") int id) {
+    @PostMapping("/delete_cart/{id}")
+    public String deleteProduct(@PathVariable(name = "id") int id)  {
 
-        return "redirect:/shop";
+        Product product = productService.get(id);
+        Cart cart = cartService.getById(2);
+
+        cartService.delete(cart,product);
+
+        return "redirect:/cart";
     }
 
 }

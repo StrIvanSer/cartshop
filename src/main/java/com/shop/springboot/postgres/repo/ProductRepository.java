@@ -9,4 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @version  1.0
  */
 public interface ProductRepository extends JpaRepository<Product, Long> {
+    Product findById(long id);
 }
