@@ -1,6 +1,7 @@
 package com.shop.springboot.postgres.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,15 +22,19 @@ public class Product {
     private Long id;
 
     @Column
+    @NotNull
     private String name;
 
     @Column
+    @NotNull
     private String brand;
 
     @Column
+    @NotNull
     private String description;
 
     @Column
+    @NotNull
     private Float price;
 
     @ManyToMany(cascade = CascadeType.ALL)

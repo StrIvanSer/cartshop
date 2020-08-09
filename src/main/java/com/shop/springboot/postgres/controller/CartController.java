@@ -45,18 +45,17 @@ public class CartController {
 
         Cart cartFromShop = cartService.getCartUser(user.getEmail());
 
-        if (!cartService.saveProductCart( cartFromShop , product)){
-             return "redirect:/shop";
-        }
+        cartService.saveProductCart(cartFromShop, product);
 
         return "redirect:/shop";
     }
 
     @PostMapping("/delete_cart/{id}")
-    public String deleteProduct(@PathVariable(name = "id") int id)  {
+    public String deleteProduct(@PathVariable(name = "id") int id,
+                                @AuthenticationPrincipal User user)  {
 
         Product product = productService.get(id);
-        Cart cart = cartService.getById(2);
+        Cart cart = cartService.getCartUser(user.getEmail());
 
         cartService.delete(cart,product);
 

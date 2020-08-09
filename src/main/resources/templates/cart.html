@@ -30,11 +30,11 @@
                 <td th:text="${cart.email}">Email покупателя</td>
 
                 <td>
-                    <form method="post" action="#" th:action="@{'/delete_cart/' + ${carts.getId()}}">
+                    <form method="post" action="#" th:action="@{'/delete_cart/' + ${carts.getId()}} ">
+                    <input type="hidden" name="cart" th:value="${cart}">
                     <button type="submit" name="submit" value="value" class="link-button">Удалить товар</button>
                     </form>
 
-                    <!--                    <a  th:href="@{'/delete_cart/' + ${carts.getId()} }">Удалить</a>-->
                 </td>
             </tr>
         </tbody>

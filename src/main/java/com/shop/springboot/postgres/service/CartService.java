@@ -75,11 +75,10 @@ public class CartService {
 //        if (userFromDB == null) {
 //            return false;
 //        }
-        Product product1 = productService.get(product.getId());
-//        userFromDB = cart;
-        cart.getProducts().add(product1);
-        product1.getCart().add(cart);
-        productRepository.save(product1);
+        Product product_id = productService.get(product.getId());
+        cart.getProducts().add(product_id);
+        product_id.getCart().add(cart);
+        productRepository.save(product_id);
         cartRepo.save(cart);
         return true;
     }

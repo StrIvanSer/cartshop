@@ -2,6 +2,7 @@ package com.shop.springboot.postgres.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Collection;
 
@@ -12,13 +13,15 @@ import java.util.Set;
 
 /**
  * Таблица пользователи
+ *
  * @author Streltsov Ivan
- * @version  1.0
+ * @version 1.0
  */
 
 @Entity
-@Table(name = "t_user")
+@Table(name = "users")
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -40,7 +43,6 @@ public class User implements UserDetails {
 
     public User() {
     }
-
 
 
     @Override

@@ -3,6 +3,7 @@ package com.shop.springboot.postgres.model;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "t_role")
+@Table(name = "role")
 public class Role implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

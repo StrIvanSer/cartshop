@@ -1,23 +1,23 @@
-INSERT INTO public.t_role(id, name)
+INSERT INTO public.role(id, name)
 VALUES (1, 'ROLE_USER'),
        (2, 'ROLE_ADMIN');
 
-INSERT INTO public.t_user (id, email, password, username)
+INSERT INTO public.users (id, email, password, username)
 VALUES (1, 'admin12345@LIst.ru', '$2a$10$SHkA87emrDlw1MVCYdJZCeuBC4x7yh54Er04pUxZZV/sIkNoY9CT6', 'admin');
 
-INSERT INTO public.t_user (id, email, password, username)
+INSERT INTO public.users (id, email, password, username)
 VALUES (2, 'svet42@yandex.ru', '$2a$10$PLa76WRjZJj84i6/Bmw93Oiw.6RIO.szuSderu8SfnpvwQilKei06', 'bubbaleh');
 
-INSERT INTO public.t_user (id, email, password, username)
+INSERT INTO public.users (id, email, password, username)
 VALUES (3, 'testUser@user.ru', '$2a$10$awPSAImmkFvPENBDKY6qQeYiJyNaV5tCU6kLKauT6PL4R.ONWN0.q', 'testUser');
 
-INSERT INTO public.t_user_roles (user_id, roles_id)
+INSERT INTO public.users_roles (user_id, roles_id)
 VALUES (1, 2);
 
-INSERT INTO public.t_user_roles (user_id, roles_id)
+INSERT INTO public.users_roles (user_id, roles_id)
 VALUES (2, 1);
 
-INSERT INTO public.t_user_roles (user_id, roles_id)
+INSERT INTO public.users_roles (user_id, roles_id)
 VALUES (3, 1);
 
 INSERT INTO public.product (prod_id, brand, description, name, price)
