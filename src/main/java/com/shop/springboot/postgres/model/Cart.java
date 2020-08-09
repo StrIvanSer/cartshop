@@ -1,6 +1,10 @@
 package com.shop.springboot.postgres.model;
 
 
+
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -11,7 +15,11 @@ import java.util.List;
  * @version  1.0
  */
 
+
+
 @Entity
+@Getter
+@Setter
 @Table(name = "cart")
 public class Cart {
 
@@ -40,49 +48,49 @@ public class Cart {
 
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-    public Long getId() {
-
-        return id;
-    }
-
-    public void setId(Long id) {
-
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-
-        this.email = email;
-    }
-
-    public Float getSum() {
-
-        return sum;
-    }
-
-    public void setSum(Float sum) {
-
-        this.sum = sum;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
+//    public List<Product> getProducts() {
+//        return products;
+//    }
+//
+//    public void setProducts(List<Product> products) {
+//        this.products = products;
+//    }
+//
+//    public Long getId() {
+//
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//
+//        this.id = id;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//
+//        this.email = email;
+//    }
+//
+//    public Float getSum() {
+//
+//        return sum;
+//    }
+//
+//    public void setSum(Float sum) {
+//
+//        this.sum = sum;
+//    }
+//
+//    public boolean isActive() {
+//        return active;
+//    }
+//
+//    public void setActive(boolean active) {
+//        this.active = active;
+//    }
 
 }
