@@ -48,10 +48,10 @@ public class User implements UserDetails {
     }
 
 
-//    @Override
-//    public String getUsername() {
-//        return username;
-//    }
+    @Override
+    public String getUsername() {
+        return username;
+    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -83,44 +83,5 @@ public class User implements UserDetails {
         return password;
     }
 
-//    public String getPasswordConfirm() {
-//        return passwordConfirm;
-//    }
-//
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public void setPassword(String password) {
-//        this.password = password;
-//    }
-//
-//    public void setUsername(String username) {
-//        this.username = username;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
-//
-//    public void setPasswordConfirm(String passwordConfirm) {
-//        this.passwordConfirm = passwordConfirm;
-//    }
-//
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public Set<Role> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(Set<Role> roles) {
-//        this.roles = roles;
-//    }
 
 }

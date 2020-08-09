@@ -48,49 +48,5 @@ public class Cart {
 
     }
 
-//    public List<Product> getProducts() {
-//        return products;
-//    }
-//
-//    public void setProducts(List<Product> products) {
-//        this.products = products;
-//    }
-//
-//    public Long getId() {
-//
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//
-//        this.id = id;
-//    }
-//
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//
-//        this.email = email;
-//    }
-//
-//    public Float getSum() {
-//
-//        return sum;
-//    }
-//
-//    public void setSum(Float sum) {
-//
-//        this.sum = sum;
-//    }
-//
-//    public boolean isActive() {
-//        return active;
-//    }
-//
-//    public void setActive(boolean active) {
-//        this.active = active;
-//    }
 
 }
